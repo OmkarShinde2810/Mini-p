@@ -5,7 +5,6 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [timeSlots, setTimeSlots] = useState(Array(24).fill(0)); // 24 time slots initialized to 0
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -43,19 +42,12 @@ function Signup() {
     setEmail("");
     setPassword("");
     setConfirmPassword("");
-    setTimeSlots(Array(24).fill(0)); // Reset time slots
-  };
-
-  const handleTimeSlotChange = (index, value) => {
-    const updatedSlots = [...timeSlots];
-    updatedSlots[index] = value;
-    setTimeSlots(updatedSlots);
   };
 
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row w-full">
-        {/* Left Side: Form */}
+        {/* Form Section */}
         <div className="card bg-base-100 w-full lg:w-1/2 shadow-2xl p-6">
           <form className="card-body" onSubmit={handleSubmit}>
             <h1 className="text-2xl font-bold mb-4">Sign Up</h1>
@@ -131,41 +123,6 @@ function Signup() {
               </p>
             </div>
           </form>
-        </div>
-
-        {/* Right Side: Time Slots */}
-        <div className="card bg-base-100 w-full lg:w-1/2 shadow-2xl p-6">
-          <h1 className="text-2xl font-bold mb-4">Available Time Slots</h1>
-          <div className="overflow-x-auto">
-            <table className="table table-bordered w-full">
-              <thead>
-                <tr>
-                  <th>Hour</th>
-                  <th>Services Available</th>
-                </tr>
-              </thead>
-              <tbody>
-                {timeSlots.map((slot, index) => (
-                  <tr key={index}>
-                    <td>
-                      {index}:00 - {index + 1}:00
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        className="input input-bordered w-full"
-                        value={slot}
-                        onChange={(e) =>
-                          handleTimeSlotChange(index, parseInt(e.target.value) || 0)
-                        }
-                        min="0"
-                      />
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
         </div>
       </div>
     </div>

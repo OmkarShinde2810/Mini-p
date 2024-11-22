@@ -7,7 +7,7 @@ function Userhome() {
       {/* Navbar */}
       <div className="navbar bg-base-100 shadow">
         <div className="flex-1 justify-center lg:justify-start">
-          <a className="btn btn-ghost text-2xl font-bold text-center">QuickFIXERS</a>
+          <a className="btn btn-ghost text-2xl font-bold text-center">quickFIXERS</a>
         </div>
         <div className="flex-none">
           {/* Hamburger Icon for Mobile */}
